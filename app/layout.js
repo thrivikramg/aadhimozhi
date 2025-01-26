@@ -3,7 +3,7 @@ export default function Layout({ children }) {
     <html lang="en">
       <head>
         <title>Whis</title>
-        <link rel="icon" href="/logo.ico" />
+        <link rel="icon" href="logo.ico" />
       </head>
       <body>
         <header>
