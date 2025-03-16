@@ -90,7 +90,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white flex-col font-mono px-4">
+    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-900 to-black text-white flex-col font-mono px-4">
       <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">Welcome to Whis.</h1>
   
       <div className="flex flex-col md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
@@ -168,7 +168,7 @@ export default function Home() {
       )}
   
       {isCreateRoomModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-4">
+        <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-gray-900 to-black bg-opacity-50 px-4">
           <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md" />
           <div className="bg-white text-black p-6 rounded-lg w-full max-w-md relative z-10">
             <button
