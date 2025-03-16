@@ -53,9 +53,9 @@ export default function MessageInput({ roomId, userName }) {
 
 
     return (
-        <div className="relative flex items-center w-full max-w-2xl gap-2 p-2">
+        <div className="relative flex items-center w-full max-w-2xl gap-2 p-2 flex-wrap sm:flex-nowrap">
             {showOptions && (
-                <div className="absolute bottom-full left-0 mb-2 bg-gray-900/95 backdrop-blur-lg text-white p-3 rounded-xl shadow-2xl border border-gray-600 flex gap-3">
+                <div className="absolute bottom-full left-0 mb-2 bg-gray-900/95 backdrop-blur-lg text-white p-3 rounded-xl shadow-2xl border border-gray-600 flex gap-3 flex-wrap sm:flex-nowrap">
                     {[
                         { icon: <FaImage className="text-purple-400" />, label: "Image" },
                         { icon: <FaFile className="text-blue-400" />, label: "File" },
@@ -68,7 +68,7 @@ export default function MessageInput({ roomId, userName }) {
                             className="flex flex-col items-center p-2 rounded-lg hover:bg-gray-800/50 transition-all duration-200 group"
                             aria-label={item.label}
                         >
-                            <span className="text-xl mb-1 group-hover:-translate-y-1 transition-transform">
+                            <span className="text-lg sm:text-xl mb-1 group-hover:-translate-y-1 transition-transform">
                                 {item.icon}
                             </span>
                             <span className="text-xs text-gray-300 group-hover:text-white">
@@ -93,7 +93,7 @@ export default function MessageInput({ roomId, userName }) {
                 onChange={(e) => setNewMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Type your message..."
-                className="flex-1 px-4 py-3 border border-gray-600 bg-gray-900/30 backdrop-blur-sm text-white rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all placeholder-gray-400"
+                className="flex-1 px-4 py-3 border border-gray-600 bg-gray-900/30 backdrop-blur-sm text-white rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all placeholder-gray-400 w-full sm:w-auto"
                 aria-label="Type your message"
             />
 
@@ -118,5 +118,6 @@ export default function MessageInput({ roomId, userName }) {
                 </svg>
             </button>
         </div>
+
     );
 }
