@@ -149,12 +149,39 @@ export default function ChatRoom() {
           </p>
         </div>
 
-        <div className="flex justify-center">
-          <div className="flex items-center space-x-2 px-3 py-1 bg-gray-800/50 backdrop-blur-sm rounded-full border border-gray-600 hover:border-purple-400 transition-all cursor-pointer">
+        <div className="relative flex justify-center group">
+          {/* Button showing number of active users */}
+          <div className="flex items-center space-x-2 px-4 py-2 bg-gray-800/50 backdrop-blur-sm rounded-full border border-gray-600 hover:border-purple-400 transition-all cursor-pointer">
             <div className="h-2 w-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs sm:text-sm font-medium">{onlineUsers.length} Active Users</span>
+            <span className="text-sm font-medium">
+              {onlineUsers.length} Active {onlineUsers.length === 1 ? "User" : "Users"}
+            </span>
           </div>
+
+          {/* Active users list (only shows on hover) */}
+          {onlineUsers.length > 0 && (
+            <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none group-hover:pointer-events-auto">
+              <div className="bg-gray-900/95 backdrop-blur-lg text-sm rounded-xl p-4 shadow-2xl border border-gray-600">
+                <div className="flex items-center mb-2 space-x-2">
+                  <div className="h-2 w-2 bg-green-400 rounded-full" />
+                  <h3 className="font-semibold">Currently Online</h3>
+                </div>
+                <ul className="grid gap-2 max-h-40 overflow-y-auto">
+                  {onlineUsers.map((user, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center space-x-2 px-2 py-1 rounded-md hover:bg-gray-800/50"
+                    >
+                      <span className="h-2 w-2 bg-purple-400 rounded-full" />
+                      <span className="text-gray-200">{user}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
+
 
         <div className="bg-gray-900/50 rounded-xl border border-gray-600 shadow-2xl max-h-[60vh] sm:max-h-[70vh] overflow-y-auto">
           <MessageList messages={messages} userColors={userColors} userName={userName} typingUsers={typingUsers} />
